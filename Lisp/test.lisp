@@ -80,5 +80,10 @@
 (defun constituent (c)
     "检测是否为可见字符（例子，空格不是可见字符）"
     (and (graphic-char-p c)
-        (not (char= c #\))))    ; 这一行是什么意思？
+        (not (char= c #\)))))    ; 这一行是什么意思？
 
+(defun hello_program (p)
+  (
+   ;"hello from test"
+	+ p  1
+  ))
