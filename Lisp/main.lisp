@@ -1,3 +1,10 @@
+(load "./test/test.lisp")
+
+(defpackage :main
+  (:use :cl :mylib))
+
+(in-package :main)
+
 ;; 类型检查
 (defun type-check (val type)
   (unless (typep val type)
@@ -7,6 +14,8 @@
 ;; 日志打印
 (defun log-call (name args)
   (format t "→ 调用 ~A ~S~%" name args))
+
+;; 讲一下语法层面的设计
 
 (defmacro defn (name args-list &rest rest)
   (let* ((ann (when (and rest (symbolp (car rest)))
@@ -36,3 +45,5 @@
 
 (defn add ((a @type integer) (b @type integer)) @log
   (+ a b))
+
+(add 1 2)
